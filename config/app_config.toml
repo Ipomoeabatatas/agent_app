@@ -1,0 +1,41 @@
+[app]
+app_home = "/home/tanpohkeam/ubts/agent_app" 
+
+
+[folders]
+logs = "/home/tanpohkeam/ubts/agent_app/logs"
+outputs = "/home/tanpohkeam/ubts/agent_app/outputs"
+secrets = "/home/tanpohkeam/ubts/agent_app/secrets"
+notebooks = "/home/tanpohkeam/ubts/agent_app/notebooks"
+outputs_crew = "/home/tanpohkeam/ubts/agent_app/outputs/crew"
+outputs_rag = "/home/tanpohkeam/ubts/agent_app/outputs/rag"
+
+[gmail]
+token = "/home/tanpohkeam/ubts/agent_app/secrets/token.json"
+credential = "/home/tanpohkeam/ubts/agent_app/secrets/credentials.json"
+token_pickle = "/home/tanpohkeam/ubts/agent_app/secrets/token.pickle"
+scope = ["https://mail.google.com/"]
+
+[milvus]
+url = "http://172.20.140.34:19530"
+dim = 1536
+override = false
+host_ip = "172.20.140.34"
+port = 19530
+collection= "_emails_attachments"
+
+[llamaindex]
+model = "gpt-4o"
+embedding = "text-embedding-ada-002"
+docs_dir = "/home/tanpohkeam/ubts/agent_app/data/knowledge"
+input_dir = "/home/tanpohkeam/ubts/agent_app/data/rag"
+
+[langchain]
+max_iterations = 2
+wait_duration = 30 # in seconds before checking inbox
+
+[crew]
+# Next two settings. Only 1 can be true
+use_openai =  true #true    ## . For model choice used by CrewAI
+use_localllm = false # false    ## .  For model choice used by CrewAI
+dummy = "dummy"

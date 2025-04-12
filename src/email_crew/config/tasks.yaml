@@ -1,0 +1,109 @@
+inbox_monitor_task:
+  description: >
+    Monitor the inbox and filter out irrelevant messages while retaining emails related to **shipping and logistics jobs**. 
+    Identify messages concerning shipment tracking, delivery confirmations, freight bookings, and job assignments.
+    Evaluate sender details, subject lines, and content to classify emails appropriately.
+    Remove non-essential messages such as newsletters, promotions, and unrelated inquiries.
+    EMAILS:
+    -------
+    {emails}
+  expected_output: >
+    Return a  structured list in JSON format of relevant emails, (related to **shipping and logistics jobs**, including shipment tracking, delivery confirmations) including:
+    - "messageId": Unique identifier for the specific email.
+    - "threadId": Unique identifier for the email thread.
+    - "senderEmail": Email address of the sender.
+    - "senderName": Name of the sender.
+    - "subject": Original subject line.
+    - "content": Extracted email content.
+  agent: inbox_monitor
+
+
+shipping_analysis_task:
+  description: >
+    Analyze the specific emails identified by the inbox monitor, using as context its email thread.
+    You are given:
+    The task is to analyze emails related to shipping, extracting key points, concerns, and 
+    action items requiring follow-up.
+    Only include insights and action items from the targetMessage itself, 
+    unless an earlier message provides essential missing information 
+    (e.g., booking reference, delivery instructions, etc.)
+    Do you best to identify the booking reference number that serves as the anchor to 
+    group related documents or communications. It may be
+    found in the email subject or body or its earlier threads. Examples of the booking references is KASEJKT032248 or BCO12345678.
+    Also, identify the vessel and voyage details if available in the email ors related emails.
+    Typical Format of a booking reference is :
+      - 8 to 12 characters
+      - characters: Usually alphanumeric
+      - structure: Often starts with letters (usually representing the carrier), followed by numbers.
+    If the booking reference is not available, assign the value "_NotAvailable".
+    
+  expected_output: >
+    Return a structured list for the specific emails. 
+    Each analysed email is a json object with the following fields:
+    - "messageId": Unique identifier for the specific email.
+    - "threadId": Unique identifier for the email thread.
+    - "subject": Original subject line.
+    - "bookingRef": Booking reference number (if available). Otherwise, assign value of "_NotAvailable".
+    - "senderEmail": Email address of the sender.
+    - "content": Full email content from the thread.
+    - "actionItems": List of actions items from the email.
+    - "answers": Empty list for this task.
+  agent: shipping_analyst
+
+action_support_task:
+  description: >
+    Research and verify information related to identified action items from the **shipping_analysis_task** or **shipping_analyst** agents.
+    Use the email content as context, and leverage knowledge bases or external websites to find relevant, up-to-date details supporting the follow-ups.
+    Focus exclusively on action items related to **shipping and logistics jobs**. 
+    If no supporting information can found, provide a brief explanation or reason for the lack of data.
+
+  expected_output: >
+    Return a structured list for every analyzed emails. 
+    Each analysed email is a json object with the following fields:
+    - "threadId": Unique identifier for the email thread.
+    - "messageId": Unique identifier for the specific email.
+    - "subject": Original subject line.
+    - "bookingRef": Booking reference number or "_NotAavailable" if cannot be determined
+    - "senderEmail": Email address of the sender.
+    - "content": Full email content.
+    - "actionItems": List of actions items from the email.
+    - "answers": List of answers or information related the the actionItems. 
+  agent: ops_coordinator
+
+email_drafting_task:
+  description: >
+    Based on the identified action-required emails, draft responses tailored to address 
+    the specific needs and context of each email. Use the analysis from the **action_support_task**
+    to provide accurate and relevant information in the drafted responses.  
+    If additional information is required to provide a more detailed response, conduct 
+    research before drafting the response.  
+    When pulling an email thread for context, use only the actual Thread ID.  
+    When drafting email responses, ensure that the tone is professional and the information is accurate.
+    In the email response, acknowledge and confirm any new information, followed by answers to any 
+    questions or concerns raised in the original email.
+    Use the provided tool to create a draft email..
+    Pass the following parameter to the tool:  
+      - "email": "recipient@example.com"          # Recipient's email address  
+      - "subject": "Your Subject Here"            # Subject of the email  
+      - "message": "The message body"             # Body content of the email  
+      - "bookingRef": "Booking reference number"  # Booking reference or "_NotAvailable" if missing  
+  expected_output: >
+    The output file **must be in valid JSONL (JSON Lines) format**, where each line 
+    is a separate **fully-formed** JSON object representing a drafted email response.  
+    **Strict output format requirements:**
+    - Each JSON object must be a **single-line JSON entry**.
+    - The output must **never contain malformed JSON** or extra line breaks.
+    - Each JSON object **must include** the following fields:
+      - "messageId": Unique identifier for the specific email.  
+      - "threadId": Unique identifier for the email thread.  
+      - "bookingRef": Booking reference number or `"_NotAvailable"` if it cannot be determined.  
+      - "subject": Original subject line.
+      - "status":  
+          - `"DraftCompleted"` if the final tool call is successful.  
+          - `"NotDrafted"` otherwise.
+    - Do not add '```' or '```markdown' to the output.
+    - Before saving the output, validate that each line is a valid JSON object.
+  agent: email_writer
+
+
+

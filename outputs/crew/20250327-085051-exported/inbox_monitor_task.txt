@@ -1,0 +1,12 @@
+```json
+[
+    {
+        "messageId": "195d51aac64f550f",
+        "threadId": "195d51aac64f550f",
+        "senderEmail": "msgcustomer@gmail.com",
+        "senderName": "Customer",
+        "subject": "PT Interindo PO#2408014-10PL | ETA SIN 10/09/24 | ETA JAKARTA\r\n 13/09/24 | AN HAI",
+        "content": "Dear All, Please arrange as follow: Customer Items Qty (Bag) Qty/20' Vessel VOYAGE ETA SIN ETA UTC1 Destination Terminal Booking Ref Ready Date Stuffing Date PT Interindo Kharisma FAIRY 726 1 AN"
+    }
+]
+```
