@@ -1,5 +1,0 @@
-The provided emails are not related to shipping and logistics. They all pertain to topics from LangChain regarding application development, monitoring, and data management, none of which involve shipment tracking, delivery confirmations, freight bookings, or logistics job assignments. Therefore, no relevant emails meet the shipping and logistics criteria. Here is an empty structured list in JSON format of relevant emails:
-
-```json
-[]
-```
