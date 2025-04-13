@@ -31,6 +31,13 @@ Thumbs.db
 # Log files
 *.log
 
+#outputs
+outputs/crew
+!outputs/crew/.gitkeep
+
+outputs/rag
+!outputs/rag/.gitkeep
+
 # dotenv files
 .env
 .env.*
@@ -57,7 +64,7 @@ secret/*
 !secret/.gitkeep
 
 # notebooks
-notebooks/
+
 
 # application data
 data/rag/*

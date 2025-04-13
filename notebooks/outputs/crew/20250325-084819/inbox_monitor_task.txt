@@ -1,0 +1,1 @@
+Based on the provided emails, none of them relate to shipping or logistics job assignments. All emails are related to LangChain's application and LLM management, which are not relevant to shipping updates, freight bookings, delivery inquiries, or logistics job assignments. Therefore, there are no emails to include in the JSON list of relevant emails.

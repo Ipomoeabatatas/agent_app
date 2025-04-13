@@ -1,0 +1,9 @@
+```jsonl
+{
+  "messageId": "123456789",
+  "threadId": "987654321",
+  "bookingRef": "PO#2408014-10PL",
+  "subject": "Schedule Information and Email Context for PO#2408014-10PL",
+  "status": "DraftCompleted"
+}
+```

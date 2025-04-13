@@ -1,0 +1,6 @@
+The inbox does not contain any relevant emails related to shipping and logistics jobs. All emails belong to the "Nick @ LangChain" sender and pertain to LangSmith app development, automation, and other tech-related updates, which do not match the shipping and logistics criteria specified. The list will be empty as none of these emails need to be retained for shipping and logistics purposes. Here is the structured list in JSON format:
+
+```json
+[]
+```
+This ensures that only relevant emails related to shipping and logistics would be retained, but in this case, none meet the criteria.

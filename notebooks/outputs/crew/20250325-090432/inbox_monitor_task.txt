@@ -1,0 +1,12 @@
+```json
+[
+    {
+        "messageId": "195cadf45d7c9525",
+        "threadId": "194d494969f09f62",
+        "senderEmail": "tan_poh_keam@RP.EDU.SG",
+        "senderName": "Tan Poh Keam (RP)",
+        "subject": "PT Interindo PO#2408014-10PL | ETA SIN 10/09/24 | ETA JAKARTA 13/09/24 | AN HAI",
+        "content": "Official (Closed) \\ Sensitive Normal Dear All, Please arrange as follow: Customer Items Qty (Bag) Qty/20' Vessel VOYAGE ETA SIN ETA UTC1 Destination Terminal Booking Ref Ready Date Stuffing Date PT"
+    }
+]
+```
