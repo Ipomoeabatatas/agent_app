@@ -32,10 +32,10 @@ Thumbs.db
 *.log
 
 #outputs
-outputs/crew
+outputs/crew/
 !outputs/crew/.gitkeep
 
-outputs/rag
+outputs/rag/
 !outputs/rag/.gitkeep
 
 # dotenv files
@@ -60,8 +60,8 @@ credentials.json
 token.json
 
 # Ignore contents of secret/ but keep the folder
-secret/*
-!secret/.gitkeep
+secrets/*
+!secrets/.gitkeep
 
 # notebooks
 
