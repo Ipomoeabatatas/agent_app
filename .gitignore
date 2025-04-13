@@ -60,13 +60,13 @@ credentials.json
 token.json
 
 # Ignore contents of secret/ but keep the folder
-secrets/*
+secrets/
 !secrets/.gitkeep
 
 # notebooks
 
 
 # application data
-data/rag/*
+data/rag
 !data/rag/.gitkeep
 
