@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 env_path = os.getenv("ENV_PATH")
 load_dotenv(env_path)
 
-# Load the APP_CONFIG_PATH environment variable
-config_path = os.getenv("APPCONFIG_PATH")
+# Load the APPCONFIG_PATH environment variable
+#config_path = os.getenv("APPCONFIG_PATH")
                         
 class AppConfig:
     _instance = None
@@ -20,7 +20,7 @@ class AppConfig:
 
     def _load_config(self):
         """Load the app_config.toml configuration file."""
-        config_path = os.getenv("APP_CONFIG_PATH", "/home/tanpohkeam/ubts/agent_app/config/app_config.toml")
+        config_path = os.getenv("APPCONFIG_PATH", "/home/tanpohkeam/ubts/agent_app/config/app_config.toml")
         #print(config_path)
 
         try:
