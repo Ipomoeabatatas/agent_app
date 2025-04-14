@@ -1,35 +1,20 @@
 # agent_app
 
 
-1. install into project home  name agent_app
 
+################################################################################
 
-2. App environment variables
-
-* replace with the full path name *
-export ENV_PATH="/full/path/to/agent_app/.env"
-export APPCONFIG_PATH="/full/path/to/agent_app/config/app_config.toml"
-
-
-3. Update .env with keys
-
-4. Update .env.txt, rename to .env in project home
-
-5. Copy google/gmail credentials.json to secrets/
+Refer to setup guide at:
+https://www.notion.so/Project-Installation-Guide-1d5cff23a7e1803881bbef77f4263bfd
 
 
 
+#################################################################################
 
 
-
-
-
-
-## GIT COMMANDS
-echo "# agent_app" >> README.md
-
-### first time only
 git init
+
+
 
 git add README.md
 
