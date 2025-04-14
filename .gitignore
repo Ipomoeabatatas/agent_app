@@ -32,10 +32,10 @@ Thumbs.db
 *.log
 
 #outputs
-outputs/crew/
+outputs/crew
 !outputs/crew/.gitkeep
 
-outputs/rag/
+outputs/rag
 !outputs/rag/.gitkeep
 
 # dotenv files
