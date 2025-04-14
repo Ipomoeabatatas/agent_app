@@ -21,10 +21,10 @@ token_pickle = "/home/tanpohkeam/ubts/agent_app/secrets/token.pickle"
 scope = ["https://mail.google.com/"]
 
 [milvus]
-url = "http://172.20.140.34:19530"
+url = "http://172.20.140.34:19530"    #localhost:19530
 dim = 1536
 override = false
-host_ip = "172.20.140.34"
+host_ip = "172.20.140.34"             #localhost   
 port = 19530
 collection= "_emails_attachments"
 
