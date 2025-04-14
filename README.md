@@ -4,6 +4,8 @@
 
 ################################################################################
 
+##SETUP##
+
 Refer to setup guide at:
 https://www.notion.so/Project-Installation-Guide-1d5cff23a7e1803881bbef77f4263bfd
 
@@ -11,27 +13,22 @@ https://www.notion.so/Project-Installation-Guide-1d5cff23a7e1803881bbef77f4263bf
 
 #################################################################################
 
+##TESTING##
 
-git init
-
-
-
-git add README.md
-
-git commit -m "first commit"
-
-git branch -M main
-
-git remote add origin https://github.com/Ipomoeabatatas/agent_app.git
-
-git push -u origin main
+Run the notebooks/workflow_v6.ipynb for end to end flow
 
 
-### Set up token and .git-
+#################################################################################
 
-### Subsequent push
+
+
+
+################################################################################
+##GITHUB##
 
 git add .
 git commit -m "notes on commit"
-git push
+git push -u origin main
+Running the app:
+
 
