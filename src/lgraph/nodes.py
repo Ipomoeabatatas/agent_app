@@ -20,8 +20,8 @@ class NodeDefinition:
     
     
     def check_state_status(self, node, state):
-        print ()
-        print ("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")        
+        
+        print ("\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")        
         print(f"Node: {node}")
         print("State:")
         pprint(state, indent=4)
@@ -30,9 +30,6 @@ class NodeDefinition:
         self.check_state_status( inspect.currentframe().f_code.co_name, state)
         
         state["graph_counter"] = state["graph_counter"] + 1   # Increment the counter
-        #print(f"Node: {inspect.currentframe().f_code.co_name}")
-        #print("State:")
-        #pprint(state, indent=4)
 
         search = GmailSearch(api_resource=self.gmail.api_resource)
         
@@ -66,6 +63,7 @@ class NodeDefinition:
 
     
     def handoff_to_aicrew(self, state):
+        #print ("\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         self.check_state_status( inspect.currentframe().f_code.co_name, state)
         mail_crew = AiCrew().crew()
         inputs = {
@@ -76,7 +74,7 @@ class NodeDefinition:
             print("Starting Crew AI processing...")
             crew_output=mail_crew.kickoff(inputs=inputs)
             print("Crew AI processing completed. Returning state...")
-            print(f"Raw CrewAI Output: {crew_output.raw}")
+            #print(f"Raw CrewAI Output: {crew_output.raw}")
             return {**state, "action_required_emails": {'dummy': 'dummy'}}
         except Exception as e:
             raise Exception(f"An error occurred while running the crew: {e}")
@@ -84,6 +82,7 @@ class NodeDefinition:
     
     
     def save_to_kb(self, state):    
+        #print ("\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         self.check_state_status( inspect.currentframe().f_code.co_name, state)
         
         outputs_crew_dir = config.OUTPUTS_CREW
@@ -120,7 +119,6 @@ class NodeDefinition:
         
         #3. Vectorise the contents of the rag input folder 
         vectorize_mails_v2(message_id="not-used", booking_ref="not-used", load_dir=rag_input_dir)
-        
         print(f"Completed: exporting and vectorising the emails")
         
         # Copy the emails/attachment to the output directory self.OUTPUTS_RAG
@@ -132,14 +130,13 @@ class NodeDefinition:
         return {**state, "action_required_emails": {'dummy': 'dummy'}}
     
     def wait_next_run(self, state):
+        print ("\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         self.check_state_status( inspect.currentframe().f_code.co_name, state)
-        
-        #print(f"Node: {inspect.currentframe().f_code.co_name}")
-        #print(f"Waiting for {duration} seconds")
         time.sleep(self.duration)
         return {**state, "action_required_emails": {'dummy': 'dummy'}}
 
     def end_workflow(self, state):
+        print ("\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         self.check_state_status( inspect.currentframe().f_code.co_name, state)
         print ("+++++++++++++++++++++END+++++++++++++++++++++++++++++++++++++++")
 

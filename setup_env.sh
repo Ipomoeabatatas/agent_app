@@ -13,6 +13,8 @@ export ENV_PATH="/home/tanpohkeam/ubts/agent_app/.env"
 export APPCONFIG_PATH="/home/tanpohkeam/ubts/agent_app/config/app_config.toml"
 
 
+echo "ENV_PATH is $ENV_PATH"
+echo "APPCONFIG_PATH is $ENV_PATH"
 
 
 ############################################
@@ -28,6 +30,9 @@ fi
 if [[ ":$PATH:" != *":$PROJECT_PATH:"* ]]; then
     export PATH="$PATH:$PROJECT_PATH"
 fi
+
+echo "PATHONPATH is $PYTHONPATH"
+echo "PATH is $PATH"
 
 
 #############################################3

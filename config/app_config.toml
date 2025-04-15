@@ -1,6 +1,9 @@
 ## INSTRUCTIONS ##
-## Replace the project home path (/home/tanpohkeam/ubts to your own path##
-## application is in subflder agent_app ""
+## 1. Replace the project home path (/home/tanpohkeam/ubts to your own path##
+## application is in subfloder agent_app ""
+## 2. Update the [milvus] section url to localhost:19530
+## 3. Update the [milvus] section host_ip to localhost
+
 
 [app]
 app_home = "/home/tanpohkeam/ubts/agent_app" 
