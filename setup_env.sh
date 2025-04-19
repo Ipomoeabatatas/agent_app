@@ -13,9 +13,11 @@ export ENV_PATH="/home/tanpohkeam/ubts/agent_app/.env"
 export APPCONFIG_PATH="/home/tanpohkeam/ubts/agent_app/config/app_config.toml"
 
 
+echo " "
+echo "** You should see 4 paths set "
+echo "** Make sure it points to your local environment "
 echo "ENV_PATH is $ENV_PATH"
 echo "APPCONFIG_PATH is $ENV_PATH"
-
 
 ############################################
 ### DO NOT CHANGE ANYTHING BELOW
@@ -33,7 +35,7 @@ fi
 
 echo "PATHONPATH is $PYTHONPATH"
 echo "PATH is $PATH"
-
+echo " "
 
 #############################################3
 # source activate ubts
